@@ -1,18 +1,11 @@
-name: Unity Android Build & Publish
+name: Unity Android Build
 
-on:
-  push:
-      branches: [main]
-        workflow_dispatch:
+on: [push, workflow_dispatch]
 
-        jobs:
-          build-android:
-              name: Build Android
-                  runs-on: ubuntu-latest
-                      steps:
-                            - name: Checkout repository
-                                    uses: actions/checkout@v4
-
-                                                - name: Build Unity project (Android)
-                                                        run: echo "Starting Unity build..."
-                                                        
+jobs:
+  build:
+      runs-on: ubuntu-latest
+          steps:
+                - uses: actions/checkout@v4
+                      - run: echo "Build starting..."
+                      
